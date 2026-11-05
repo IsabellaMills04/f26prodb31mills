@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  h1= title
+  p I like web apps!
+  button(type="button", class="btn btn-secondary", onclick="reduce()") Sample Button
+  div(id="use") take some away
+  script.
+    let current = 11;
+    let quantity = 2;
+
+    function reduce(){
+      current = current - quantity;
+      if (current < 0) {
+        current = 0;
+      }
+      document.querySelector("div").innerHTML = `Reduced by ${quantity} to ${current}`
+    }
+
+  a(href="/apple") Go to apple

@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  h1= title
+  -
+    let results = [
+      { variety: "Honeycrisp", color: "red-yellow", weight: 220 },
+      { variety: "Granny Smith", color: "green", weight: 190 },
+      { variety: "Fuji", color: "red", weight: 200 }
+    ];
+
+  div(class="container-fluid")
+    div(class="row")
+      each item, index in results
+        div(class="col-sm-2", onclick=`buy(${index})`)
+          p Variety: #{item.variety}
+          p Color: #{item.color}
+          p Weight: #{item.weight} g
+  script.
+    function buy(index) {
+      alert(`You purchased item ${index}.`)
+    }
