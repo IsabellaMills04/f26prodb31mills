@@ -1,6 +1,2 @@
-Assignment 10 - Isabella Mills
-
-Apple Class
--apple_type: string
--color: string
--weights: number
+Assignment 11 - Isabella Mills
+Render link: https://f26prodb31mills.onrender.com/
