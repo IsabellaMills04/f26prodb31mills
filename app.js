@@ -25,9 +25,22 @@ async function recreateDB() {
   await Apple.deleteMany();
 
   let instance1 = new Apple({variety:"Gala", color:"red", weight:210});
-
   instance1.save().then(doc=>{
     console.log("First object saved")}
+  ).catch(err=>{
+    console.error(err)
+  });
+
+  let instance2 = new Apple({variety:"Granny Smith", color:"green", weight:180});
+  instance2.save().then(doc=>{
+    console.log("Second object saved")}
+  ).catch(err=>{
+    console.error(err)
+  });
+
+  let instance3 = new Apple({variety:"Honeycrisp", color:"red", weight:240});
+  instance3.save().then(doc=>{
+    console.log("Third object saved")}
   ).catch(err=>{
     console.error(err)
   });
