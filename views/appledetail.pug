@@ -1,0 +1,23 @@
+extends layout 
+
+block content 
+    h1=title 
+
+    - let appleid = toShow._id 
+    - let applevariety = toShow.variety 
+    - let applecolor = toShow.color 
+    - let appleweight = toShow.weight 
+    div 
+        div.row
+            div(class='appleAttr mr-3') Apple ID is: 
+            div #{appleid}
+        div.row
+            div(class='appleAttr mr-3') Apple Variety is: 
+            div #{applevariety}
+        div.row
+            div(class='appleAttr mr-3') Apple Color is: 
+            div #{applecolor}
+        div.row
+            div(class='appleAttr mr-3') Apple Weight is: 
+            div #{appleweight}
+        
