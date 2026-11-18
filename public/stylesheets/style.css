@@ -7,7 +7,52 @@ a {
   color: #00B7FF;
 }
 
+.titleDetail {
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  color: green;
+  text-decoration: underline;
+  text-align: center;
+}
+
+.container {
+  width: fit-content;
+  margin: 2em auto 0;
+}
+
 .appleAttr {
-background-color: aquamarine;
-width: 120px;
+  background-color: aquamarine;
+  width: 120px;
+}
+
+.appleRow {
+  display: flex;
+  align-items: baseline;
+  font-size: 1.5em;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  padding: 10px;
+}
+
+.appleAttrNew {
+  margin-right: 0.4em;
+}
+
+.appleDetail {
+  font-style: italic;
+  color: red;
+}
+
+.applebtn {
+  display: block;
+  margin: 2em auto 0;
+  background-color: green;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  font-size: 1.5em;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.applebtn:hover {
+  background-color: lightgreen;
+  color: black;
+  border: none;
 }

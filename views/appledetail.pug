@@ -1,23 +1,29 @@
 extends layout 
 
 block content 
-    h1=title 
+    h1(class='titleDetail') &#127822; #{title} &#127822;
 
-    - let appleid = toShow._id 
-    - let applevariety = toShow.variety 
-    - let applecolor = toShow.color 
-    - let appleweight = toShow.weight 
-    div 
-        div.row
-            div(class='appleAttr mr-3') Apple ID is: 
-            div #{appleid}
-        div.row
-            div(class='appleAttr mr-3') Apple Variety is: 
-            div #{applevariety}
-        div.row
-            div(class='appleAttr mr-3') Apple Color is: 
-            div #{applecolor}
-        div.row
-            div(class='appleAttr mr-3') Apple Weight is: 
-            div #{appleweight}
-        
+    if(toShow == null)
+        h2 No instance to show
+    else
+        - let appleid = toShow._id 
+        - let applevariety = toShow.variety 
+        - let applecolor = toShow.color 
+        - let appleweight = toShow.weight 
+
+        div(class='container') 
+            div.appleRow
+                div(class='appleAttrNew') Apple ID is: 
+                div(class='appleDetail') #{appleid}
+            div.appleRow
+                div(class='appleAttrNew') Apple Variety is: 
+                div(class='appleDetail') #{applevariety}
+            div.appleRow
+                div(class='appleAttrNew') Apple Color is: 
+                div(class='appleDetail') #{applecolor}
+            div.appleRow
+                div(class='appleAttrNew') Apple Weight is: 
+                div(class='appleDetail') #{appleweight}
+
+    button(class='btn btn-secondary applebtn' onclick="window.location.href='/apple'") Go to Apple List
+            

@@ -3,42 +3,45 @@ extends layout
 block content 
     h1=title 
 
-    - let appleid = toShow._id 
-    - let applevariety = toShow.variety 
-    - let applecolor = toShow.color 
-    - let appleweight = toShow.weight 
+    if(toShow == null)
+        h2 No instance to update 
+    else 
+        - let appleid = toShow._id 
+        - let applevariety = toShow.variety 
+        - let applecolor = toShow.color 
+        - let appleweight = toShow.weight 
+        - let actionid = "/resource/apple/" + appleid 
 
-    div.row(class='mb-2')
-        div.mr-1 ID is 
-        div #{appleid}
-    - let actionid = "/resource/apple/" + appleid 
+        div.row(class='mb-2')
+            div.mr-1 ID is 
+            div #{appleid}
 
-    form(id='AppleForm', action=actionid, method="PUT")
-        div.form-group
-            label.appleAttr(for='variety') Apple variety 
-            input#variety(type='text', name='variety', value=applevariety)
-        div.form-group
-            label.appleAttr(for='color') Apple color 
-            input#color(type='text', name='color', value=applecolor)
-        div.form-group
-            label.appleAttr(for='weight') Apple weight 
-            input#weight(type='text', name='weight', value=appleweight)
-        input(type="submit")
+        form(id='AppleForm', action=actionid, method="PUT")
+            div.form-group
+                label.appleAttr(for='variety') Apple variety 
+                input#variety(type='text', name='variety', value=applevariety)
+            div.form-group
+                label.appleAttr(for='color') Apple color 
+                input#color(type='text', name='color', value=applecolor)
+            div.form-group
+                label.appleAttr(for='weight') Apple weight 
+                input#weight(type='text', name='weight', value=appleweight)
+            input(type="submit")
 
-    script. 
-        document.forms['AppleForm'].addEventListener('submit', (event) => {
-            event.preventDefault();
-            // TODO do something here to show user that form is being submitted
-            fetch(event.target.action, {
-                method: 'PUT',
-                body: new URLSearchParams(new FormData(event.target))
-            }).then((resp) => {
-                return resp.json();
-            }).then((body) => {
-                alert("Save Succeeded")
-                // TODO handle body
-            }).catch((error) => {
-                // TODO handle error
-                alert("Save failed " + error)
+        script. 
+            document.forms['AppleForm'].addEventListener('submit', (event) => {
+                event.preventDefault();
+                // TODO do something here to show user that form is being submitted
+                fetch(event.target.action, {
+                    method: 'PUT',
+                    body: new URLSearchParams(new FormData(event.target))
+                }).then((resp) => {
+                    return resp.json();
+                }).then((body) => {
+                    alert("Save Succeeded")
+                    // TODO handle body
+                }).catch((error) => {
+                    // TODO handle error
+                    alert("Save failed " + error)
+                });
             });
-        });
