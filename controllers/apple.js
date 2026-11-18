@@ -46,8 +46,16 @@ exports.apple_create_post = async function(req, res) {
 };
 
 // Handle Apple delete from on DELETE
-exports.apple_delete = function(req, res) {
-    res.send('NOT IMPLEMENTED: Apple delete DELETE ' + req.params.id);
+exports.apple_delete = async function(req, res) {
+    console.log("delete " + req.params.id)
+    try {
+        result = await Apple.findByIdAndDelete(req.params.id)
+        console.log("Removed " + result)
+        res.send(result)
+    } catch(err) {
+        res.status(500)
+        res.send(`{"error": Error deleting ${err}}`);
+    }
 };
 
 // Handle Apple update form on PUT
