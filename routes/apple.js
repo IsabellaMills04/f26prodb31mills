@@ -14,4 +14,7 @@ router.get('/create', apple_controller.apple_create_Page);
 /* GET create update page */
 router.get('/update', apple_controller.apple_update_Page);
 
+/* GET delete apple page */
+router.get('/delete', apple_controller.apple_delete_Page);
+
 module.exports = router;
