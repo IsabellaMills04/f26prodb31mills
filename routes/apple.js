@@ -8,4 +8,7 @@ router.get('/', apple_controller.apple_view_all_Page);
 /* GET detail apple page */
 router.get('/detail', apple_controller.apple_view_one_Page);
 
+/* GET create apple page */
+router.get('/create', apple_controller.apple_create_Page);
+
 module.exports = router;

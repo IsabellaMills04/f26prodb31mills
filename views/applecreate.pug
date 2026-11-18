@@ -1,0 +1,34 @@
+extends layout 
+
+block content 
+    h1=title 
+
+    form(id='AppleForm', action="/resource/apple",method="POST")
+        div.form-group
+            label.appleAttr(for='variety') Apple variety 
+            input#variety(type='text', name='variety')
+        div.form-group
+            label.appleAttr(for='color') Apple color 
+            input#color(type='text', name='color')
+        div.form-group
+            label.appleAttr(for='weight') Apple weight 
+            input#weight(type='text', name='weight')
+        input(type="submit")
+    
+    script. 
+        document.forms['AppleForm'].addEventListener('submit', (event) => {
+            event.preventDefault();
+            // TODO do something here to show user that form is being submitted
+            fetch(event.target.action, {
+                method: 'POST',
+                body: new URLSearchParams(new FormData(event.target))
+            }).then((resp) => {
+                return resp.json();
+            }).then((body) => {
+                alert("Save Succeeded")
+                // TODO handle body
+            }).catch((error) => {
+                // TODO handle error
+                alert("Save failed " + error)
+            });
+        });
